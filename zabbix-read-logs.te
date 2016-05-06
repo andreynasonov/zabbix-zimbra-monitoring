@@ -1,0 +1,10 @@
+module zabbix-read-logs 1.0.0;
+
+require {
+        type var_log_t;
+        type zabbix_agent_t;
+        class file { open read };
+}
+
+#============= zabbix_agent_t ==============
+allow zabbix_agent_t var_log_t:file { open read };
