@@ -22,7 +22,7 @@ case "$1" in
 	  exit 1
 	fi
 
-        state="$(/usr/bin/tail -n 1000 $zimbra_log_file | grep STATUS | grep $1 | tail -1 | cut -d ' ' -f 13)"
+        state="$(/usr/bin/tail -n 1000 $zimbra_log_file | grep STATUS | grep $1 | tail -1 | cut -d ':' -f 11)"
 
 	if [ "$state" != "Running" ]; then
 	  echo 0
