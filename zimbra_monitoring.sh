@@ -23,6 +23,8 @@ case "$1" in
 	fi
 
         state="$(/usr/bin/tail -n 1000 $zimbra_log_file | grep STATUS | grep $1 | tail -1 | cut -d ':' -f 11)"
+	
+	state=`echo $state | sed -e 's/^[[:space:]]*//'`
 
 	if [ "$state" != "Running" ]; then
 	  echo 0
